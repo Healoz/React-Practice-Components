@@ -3,6 +3,10 @@
 A growing collection of React components built for daily coding practice.
 Built with **Next.js**, **TypeScript**, and **Sass**.
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+
 ## Table of Contents
 
 - [ProfileCard](#profilecard)
