@@ -1,0 +1,11 @@
+@use "./styles/variables" as *;
+
+.container {
+  padding: $spacing-xl;
+
+  h1 {
+    color: $color-primary;
+    font-size: 60px;
+    margin-bottom: $spacing-lg;
+  }
+}

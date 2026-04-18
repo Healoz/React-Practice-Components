@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.profileCard {
+  padding: $spacing-lg;
+  background-color: $color-300;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  width: clamp(300px, 50%, 480px);
+
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .role {
+    color: $color-800;
+    font-size: 14px;
+  }
+
+  .bio {
+    font-size: 14px;
+  }
+}

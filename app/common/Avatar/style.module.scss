@@ -1,0 +1,27 @@
+@use "../../styles/variables" as *;
+
+.avatar {
+  margin-bottom: $spacing-sm;
+  position: relative;
+  display: flex;
+  width: 90px;
+
+  .avatarCircle {
+    aspect-ratio: 1 / 1;
+    background-color: $color-secondary;
+    border-radius: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .onlineStatus {
+    position: absolute;
+    width: 16px;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    background-color: $color-secondary;
+    right: 6px;
+    bottom: 6px;
+    border: $color-white 2px solid;
+  }
+}
