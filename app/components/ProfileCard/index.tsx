@@ -69,7 +69,7 @@ const index: FC<ProfileCardProps> = ({
               animate={{ y: "0%" }}
               transition={{
                 duration: 0.6,
-                delay: i * 0.1,
+                delay: 0.3 + i * 0.2,
                 ease: [0.33, 1, 0.68, 1],
               }}
             >

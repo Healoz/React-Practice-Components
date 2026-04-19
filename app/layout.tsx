@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.scss";
+import LenisProvider from "./common/LenisProvider";
 
 export const metadata: Metadata = {
   title: "React Practice Components | Healoz",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }

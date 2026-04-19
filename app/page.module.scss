@@ -2,14 +2,22 @@
 
 .container {
   padding: $spacing-xl;
+  background-color: $color-primary;
 
   h1 {
-    color: $color-primary;
+    color: $color-black;
+    font-weight: 900;
     font-size: 60px;
-    margin-bottom: $spacing-lg;
   }
 
-  p {
-    color: $color-800;
+  .subHeading {
+    font-size: 20px;
+    margin-bottom: $spacing-md;
+  }
+
+  .componentName {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: $spacing-md;
   }
 }
