@@ -1,0 +1,14 @@
+@use "../../styles/variables" as *;
+
+.profileCardGrid {
+  display: grid;
+  border-radius: $radius;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(280px, 30%, 400px), 1fr)
+  );
+  width: 100%;
+  gap: $spacing-lg;
+  padding: $spacing-xl;
+  background-color: $color-300;
+}

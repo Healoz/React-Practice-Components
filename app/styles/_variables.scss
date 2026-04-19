@@ -5,10 +5,12 @@ $font-primary: "Nohemi", sans-serif;
 $color-primary: #f8320b; // orange-red
 $color-secondary: #0065ff; // electric blue
 $color-accent: #dccb09; // mustard yellow
+$color-green: #75b09c;
 $color-black: #0a0a0a;
 $color-800: #3d3d39;
+$color-500: #878783;
 $color-300: #f9f9f4;
-$color-white: #fafaf6;
+$color-white: #fffffd;
 
 // ==== SPACING ====
 $spacing-xs: 4px;
@@ -20,4 +22,4 @@ $spacing-2xl: 128px;
 
 // ==== BORDER-RADIUS ====
 $radius: 20px;
-$shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+$shadow: 0 6px 6px rgba(0, 0, 0, 0.01);

@@ -1,5 +1,8 @@
-import React, { FC } from "react";
+"use client";
+import { FC, useState } from "react";
 import styles from "./style.module.scss";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 /**
  * Avatar
@@ -26,16 +29,36 @@ interface AvatarProps {
 }
 
 const index: FC<AvatarProps> = ({ initials, isOnline, profileImgUrl }) => {
+  const [imgError, setImgError] = useState(false);
+  const showImage = profileImgUrl && !imgError;
+
   return (
-    <div className={styles.avatar}>
+    <motion.div
+      className={styles.avatar}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className={styles.avatarCircle}>
-        {/* TODO: conditionally render img or initials based on profileImgUrl */}
-        {/* TODO: add alt text fallback if profileImgUrl is broken */}
-        <img src={profileImgUrl} alt="Profile image" />
+        {showImage ? (
+          <div className={styles.imgFallback}>
+            <Image
+              src={profileImgUrl}
+              alt="Profile image"
+              fill
+              onError={() => setImgError(true)}
+            />
+          </div>
+        ) : (
+          <h4 className={styles.initials}>{initials}</h4>
+        )}
       </div>
-      {/* TODO: style onlineStatus dot — green when isOnline, grey when offline */}
-      <div className={styles.onlineStatus}></div>
-    </div>
+      <div
+        className={`${styles.onlineStatus} ${!isOnline ? styles.statusIsOffline : ""}`}
+      >
+        {!isOnline && <p className={styles.offlineSymbol}>x</p>}
+      </div>
+    </motion.div>
   );
 };
 
