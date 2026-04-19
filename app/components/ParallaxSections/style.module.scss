@@ -1,0 +1,26 @@
+@use "../../styles/variables" as *;
+
+.parallaxSections {
+  height: 200vh;
+  position: relative;
+  section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    position: relative;
+
+    &.section1 {
+      color: $color-white;
+      background-image: url("https://images.pexels.com/photos/7386735/pexels-photo-7386735.jpeg");
+      background-position: center;
+      position: sticky;
+      top: 0;
+    }
+
+    &.section2 {
+      background-color: $color-accent;
+    }
+  }
+}
