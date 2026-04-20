@@ -1,0 +1,19 @@
+@use "../../styles/variables" as *;
+
+.container {
+  margin: $spacing-xl;
+
+  h2 {
+    font-size: 50px;
+    margin-bottom: $spacing-md;
+  }
+
+  input {
+    padding: $spacing-md;
+    border-radius: $radius;
+    width: clamp(250px, 50%, 600px);
+    border: none;
+    background-color: $color-300;
+    outline: none;
+  }
+}

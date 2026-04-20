@@ -11,6 +11,7 @@ const Nav = () => {
   const components = [
     { name: "Parallax Sections", url: "/parallax-sections" },
     { name: "Profile Card", url: "/profile-card" },
+    { name: "Movie Search", url: "/movie-search" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
