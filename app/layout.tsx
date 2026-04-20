@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import LenisProvider from "./common/LenisProvider";
+import Nav from "./common/Nav";
 
 export const metadata: Metadata = {
   title: "React Practice Components | Healoz",
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <LenisProvider>{children}</LenisProvider>
+        <LenisProvider>
+          <Nav />
+          {children}
+        </LenisProvider>
       </body>
     </html>
   );

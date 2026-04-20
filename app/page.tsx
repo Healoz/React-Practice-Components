@@ -5,14 +5,8 @@ import ParallaxSections from "./components/ParallaxSections";
 export default function Home() {
   return (
     <section className={styles.container}>
-      <h1>PRACTICE COMPONENTS</h1>
-      <h4 className={styles.subHeading}>
-        A random assortment of components for practicing.
-      </h4>
-      {/* <h3 className={styles.componentName}>PROFILE CARD</h3> */}
-      <h3 className={styles.componentName}>PARALLAX SECTION</h3>
-      {/* <ProfileCardGrid /> */}
-      <ParallaxSections />
+      <ProfileCardGrid />
+      {/* <ParallaxSections /> */}
     </section>
   );
 }

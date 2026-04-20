@@ -1,6 +1,7 @@
 @use "../../styles/variables" as *;
 
 .parallaxSections {
+  background-color: $color-primary;
   height: 200vh;
   position: relative;
   section {

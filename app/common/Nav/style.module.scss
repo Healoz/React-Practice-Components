@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.container {
+  padding: $spacing-xl;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: space-between;
+
+  .header {
+    h1 {
+      color: $color-black;
+      font-weight: 900;
+      font-size: 60px;
+    }
+
+    .subHeading {
+      font-size: 20px;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  .componentDropdown {
+    width: 250px;
+    height: 60px;
+    padding: 20px;
+    background-color: $color-primary;
+    border: $color-black 2px solid;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
