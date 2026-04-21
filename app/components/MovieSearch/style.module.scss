@@ -16,4 +16,18 @@
     background-color: $color-300;
     outline: none;
   }
+  .movieGrid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    margin-top: $spacing-xl;
+    gap: $spacing-xl;
+
+    .movieCell {
+      display: flex;
+      background-color: $color-secondary;
+      aspect-ratio: 3 / 4;
+      position: relative;
+    }
+  }
 }

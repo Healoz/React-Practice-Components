@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
+import Image from "next/image";
 
 // User Story:
 
@@ -41,6 +42,36 @@ const MovieSearch = () => {
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
+      <div className={styles.movieGrid}>
+        <div className={styles.movieCell}>
+          <Image
+            src="https://m.media-amazon.com/images/M/MV5BMTQyMTQyMzEyNF5BMl5BanBnXkFtZTgwMTI1NjI4MDE@._V1_SX300.jpg"
+            alt="Movie poster"
+            fill
+          />
+        </div>
+        <div className={styles.movieCell}>
+          <Image
+            src="https://m.media-amazon.com/images/M/MV5BMTQyMTQyMzEyNF5BMl5BanBnXkFtZTgwMTI1NjI4MDE@._V1_SX300.jpg"
+            alt="Movie poster"
+            fill
+          />
+        </div>
+        <div className={styles.movieCell}>
+          <Image
+            src="https://m.media-amazon.com/images/M/MV5BMTQyMTQyMzEyNF5BMl5BanBnXkFtZTgwMTI1NjI4MDE@._V1_SX300.jpg"
+            alt="Movie poster"
+            fill
+          />
+        </div>
+        <div className={styles.movieCell}>
+          <Image
+            src="https://m.media-amazon.com/images/M/MV5BMTQyMTQyMzEyNF5BMl5BanBnXkFtZTgwMTI1NjI4MDE@._V1_SX300.jpg"
+            alt="Movie poster"
+            fill
+          />
+        </div>
+      </div>
     </section>
   );
 };
