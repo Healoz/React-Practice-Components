@@ -37,7 +37,8 @@
     gap: $spacing-xl;
 
     .cellContainer {
-      overflow: hidden;
+      background-color: $color-secondary;
+      position: relative;
       .movieCell {
         display: flex;
         background-color: $color-300;

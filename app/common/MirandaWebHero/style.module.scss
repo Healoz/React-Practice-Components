@@ -1,0 +1,16 @@
+@use "../../styles/variables" as *;
+
+.heroContainer {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+
+  .bgElement {
+    position: absolute;
+
+    &.folliage2 {
+      object-fit: fill;
+      background-color: blue;
+    }
+  }
+}

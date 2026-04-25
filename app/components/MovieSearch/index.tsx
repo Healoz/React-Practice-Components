@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
 import Image from "next/image";
 import LoadingIndicator from "@/app/common/LoadingIndicator";
-import { AnimatePresence, motion, scale } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 // User Story:
 
@@ -50,6 +50,7 @@ const MovieSearch = () => {
           }
 
           const search = data.Search;
+          console.log("search results: ", search);
           setMovies(
             search.map((m: any) => ({
               id: m.imdbID,
@@ -68,6 +69,11 @@ const MovieSearch = () => {
 
     return () => clearTimeout(timeout);
   }, [searchText]);
+
+  useEffect(() => {
+    console.log("movies updated with:", movies);
+    console.log("broken posters: ", brokenPosters);
+  }, [movies, brokenPosters]);
 
   return (
     <section className={styles.container}>
@@ -93,66 +99,64 @@ const MovieSearch = () => {
           )}
         </AnimatePresence>
       </div>
-      <AnimatePresence mode="wait">
-        {!noMoviesFound ? (
-          <motion.div
-            className={styles.movieGrid}
-            key="grid"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {movies.map((movie, i) => (
-              <div className={styles.cellContainer} key={movie.id}>
-                <motion.div
-                  className={styles.movieCell}
-                  initial={{ y: "105%" }}
-                  whileInView={{
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: i * 0.05 + 0.2,
-                      ease: [0.33, 1, 0.68, 1],
-                    },
-                  }}
-                  viewport={{ once: true, margin: "0px 0px 500px 0px" }}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: {
-                      duration: 0.2,
-                      ease: [0.33, 1, 0.68, 1],
-                      type: "tween",
-                    },
-                  }}
-                >
-                  {movie.poster === "N/A" || brokenPosters.has(movie.id) ? (
-                    <p>{movie.name}</p>
-                  ) : (
-                    <Image
-                      src={movie.poster}
-                      alt={`Poster for ${movie.name}`}
-                      fill
-                      onError={() =>
-                        setBrokenPosters((prev) => new Set(prev).add(movie.id))
-                      }
-                    />
-                  )}
-                </motion.div>
-              </div>
-            ))}
-          </motion.div>
-        ) : (
-          <motion.div
-            className={styles.noMoviesFound}
-            key="no-results"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <h3>No movies found</h3>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+      {!noMoviesFound ? (
+        <motion.div
+          className={styles.movieGrid}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {movies.map((movie, i) => (
+            <div className={styles.cellContainer} key={movie.id}>
+              <motion.div
+                className={styles.movieCell}
+                initial={{ y: "-105%" }}
+                viewport={{ once: true, margin: "0px 0px 500px 0px" }}
+                whileInView={{
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    delay: i * 0.05 + 0.2,
+                    ease: [0.33, 1, 0.68, 1],
+                  },
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  transition: {
+                    duration: 0.2,
+                    ease: [0.33, 1, 0.68, 1],
+                    type: "tween",
+                  },
+                }}
+              >
+                {movie.poster === "N/A" || brokenPosters.has(movie.id) ? (
+                  <p>{movie.name}</p>
+                ) : (
+                  <Image
+                    src={movie.poster}
+                    alt={`Poster for ${movie.name}`}
+                    fill
+                    onError={() =>
+                      setBrokenPosters((prev) => new Set(prev).add(movie.id))
+                    }
+                  />
+                )}
+              </motion.div>
+            </div>
+          ))}
+        </motion.div>
+      ) : (
+        <motion.div
+          className={styles.noMoviesFound}
+          key="no-results"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <h3>No movies found</h3>
+        </motion.div>
+      )}
     </section>
   );
 };

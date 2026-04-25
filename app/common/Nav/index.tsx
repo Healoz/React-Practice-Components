@@ -12,6 +12,7 @@ const Nav = () => {
     { name: "Parallax Sections", url: "/parallax-sections" },
     { name: "Profile Card", url: "/profile-card" },
     { name: "Movie Search", url: "/movie-search" },
+    { name: "Miranda Web Hero", url: "/miranda-web-hero" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
