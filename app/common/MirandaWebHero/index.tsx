@@ -7,15 +7,17 @@ interface Props {}
 
 const MirandaWebHero: FC<Props> = ({}) => {
   return (
-    <section className={styles.heroContainer}>
-      <Image
-        src="/hero/folliage2.svg"
-        alt="folliage"
-        fill
-        className={`${styles.bgElement} ${styles.folliage2}`}
-        style={{ objectFit: "fill" }}
-      />
-    </section>
+    <div className={styles.wrapper}>
+      <section className={styles.heroContainer}>
+        <Image
+          src="/hero/folliage2.svg"
+          alt="folliage"
+          fill
+          className={`${styles.bgElement} ${styles.folliage2}`}
+          style={{ objectFit: "fill" }}
+        />
+      </section>
+    </div>
   );
 };
 
