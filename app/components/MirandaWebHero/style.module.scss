@@ -5,20 +5,27 @@
   justify-content: center;
   width: 100%;
   background-color: #06030a;
+
   .heroContainer {
     position: relative;
     width: 100%;
     max-width: 1800px;
     height: 70vh;
     overflow: hidden;
-    background-color: #06030a;
+    background-color: #252960;
 
-    .bgElement {
+    .bgElementWrapper {
       position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
 
-      &.folliage2 {
-        object-fit: cover;
-        background-color: blue;
+      &.folliage1 .bgElementImg {
+        position: absolute;
+        right: -50px;
+        bottom: -230px;
+      }
+      &.folliage2 .bgElementImg {
         transform: scale(1.2);
 
         // Mobile
@@ -26,6 +33,10 @@
           transform: scale(1.7, 1.2);
           width: 100%;
         }
+      }
+      &.folliage3 {
+        transform: scale(1.01, 1.1);
+        min-width: 800px;
       }
     }
   }

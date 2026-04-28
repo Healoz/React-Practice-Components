@@ -1,5 +1,5 @@
 import React from "react";
-import MirandaWebHero from "../common/MirandaWebHero";
+import MirandaWebHero from "../components/MirandaWebHero";
 
 const page = () => {
   return <MirandaWebHero />;

@@ -4,6 +4,7 @@
   padding: $spacing-xl;
   background-color: $color-primary;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
 
   .header {
