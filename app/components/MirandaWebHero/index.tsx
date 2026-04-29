@@ -11,8 +11,10 @@ const MirandaWebHero: FC<Props> = ({}) => {
 
   const smoothX = useSpring(mouseX, { stiffness: 80, damping: 20 });
 
-  const layerMid = useTransform(smoothX, [-0.5, 0.5], [-60, 60]);
-  const layerNear = useTransform(smoothX, [-0.5, 0.5], [-100, 100]);
+  const layerFurtherest = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
+  const layerFar = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
+  const layerMid = useTransform(smoothX, [-0.5, 0.5], [-80, 80]);
+  const layerNear = useTransform(smoothX, [-0.5, 0.5], [-120, 120]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -25,6 +27,40 @@ const MirandaWebHero: FC<Props> = ({}) => {
     <div className={styles.wrapper}>
       <section className={styles.heroContainer} onMouseMove={handleMouseMove}>
         <motion.div
+          className={`${styles.bgElementWrapper} ${styles.folliage7}`}
+          style={{ x: layerFurtherest }}
+        >
+          <Image
+            src="/hero/folliage7.svg"
+            alt="fog"
+            fill
+            className={styles.bgElementImg}
+          />
+        </motion.div>
+        <motion.div
+          className={`${styles.bgElementWrapper} ${styles.fog6}`}
+          style={{ x: layerFar }}
+        >
+          <Image
+            src="/hero/fog6.svg"
+            alt="fog"
+            fill
+            className={styles.bgElementImg}
+          />
+        </motion.div>
+        <motion.div
+          className={`${styles.bgElementWrapper} ${styles.lake5}`}
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
+        >
+          <Image
+            src="/hero/lake5.svg"
+            alt="folliage"
+            fill
+            className={styles.bgElementImg}
+          />
+        </motion.div>
+        <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage3}`}
           style={{ x: layerMid }}
         >
@@ -34,26 +70,24 @@ const MirandaWebHero: FC<Props> = ({}) => {
             fill
             className={styles.bgElementImg}
           />
+          <Image
+            src="/hero/doe4.svg"
+            alt="doe"
+            height={200}
+            width={200}
+            className={styles.doeImg}
+          ></Image>
         </motion.div>
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage2}`}
           style={{ x: layerNear }}
+          animate={{ rotate: [0, 2, 0] }}
+          transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
         >
           <Image
             src="/hero/folliage2.svg"
             alt="folliage"
             fill
-            className={styles.bgElementImg}
-          />
-        </motion.div>
-        <motion.div
-          className={`${styles.bgElementWrapper} ${styles.folliage1}`}
-        >
-          <Image
-            src="/hero/folliage1.svg"
-            alt="folliage"
-            height={500}
-            width={400}
             className={styles.bgElementImg}
           />
         </motion.div>
