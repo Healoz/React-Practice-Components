@@ -8,19 +8,27 @@ interface Props {}
 
 const MirandaWebHero: FC<Props> = ({}) => {
   const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const smoothX = useSpring(mouseX, { stiffness: 80, damping: 20 });
+  const smoothY = useSpring(mouseY, { stiffness: 80, damping: 20 });
 
-  const layerFurtherest = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
-  const layerFar = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
-  const layerMid = useTransform(smoothX, [-0.5, 0.5], [-80, 80]);
-  const layerNear = useTransform(smoothX, [-0.5, 0.5], [-120, 120]);
+  const layerFurtherestX = useTransform(smoothX, [-0.5, 0.5], [-20, 20]);
+  const layerFarX = useTransform(smoothX, [-0.5, 0.5], [-50, 50]);
+  const layerMidX = useTransform(smoothX, [-0.5, 0.5], [-80, 80]);
+  const layerNearX = useTransform(smoothX, [-0.5, 0.5], [-200, 200]);
+
+  const layerFurtherestY = useTransform(smoothY, [-0.5, 0.5], [-2, 2]);
+  const layerFarY = useTransform(smoothY, [-0.5, 0.5], [-5, 5]);
+  const layerMidY = useTransform(smoothY, [-0.5, 0.5], [-10, 10]);
+  const layerNearY = useTransform(smoothY, [-0.5, 0.5], [-20, 20]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
     mouseX.set(x);
-    console.log("x position: ", x);
+    mouseY.set(y);
   };
 
   return (
@@ -28,7 +36,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
       <section className={styles.heroContainer} onMouseMove={handleMouseMove}>
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage7}`}
-          style={{ x: layerFurtherest }}
+          style={{ x: layerFurtherestX, y: layerFurtherestY }}
         >
           <Image
             src="/hero/folliage7.svg"
@@ -39,7 +47,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
         </motion.div>
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.fog6}`}
-          style={{ x: layerFar }}
+          style={{ x: layerFarX, y: layerFarY }}
         >
           <Image
             src="/hero/fog6.svg"
@@ -62,7 +70,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
         </motion.div>
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage3}`}
-          style={{ x: layerMid }}
+          style={{ x: layerMidX, y: layerMidY }}
         >
           <Image
             src="/hero/folliage3.svg"
@@ -80,9 +88,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
         </motion.div>
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage2}`}
-          style={{ x: layerNear }}
-          animate={{ rotate: [0, 2, 0] }}
-          transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
+          style={{ x: layerNearX, y: layerNearY }}
         >
           <Image
             src="/hero/folliage2.svg"
