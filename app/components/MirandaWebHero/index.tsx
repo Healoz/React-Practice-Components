@@ -1,8 +1,29 @@
 "use client";
-import { FC, useRef } from "react";
+import { FC } from "react";
 import styles from "./style.module.scss";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+
+/**
+ * MirandaWebHero
+ *
+ * A full-screen parallax hero section with layered SVG elements that respond
+ * to mouse movement. Each layer moves at a different depth/speed to create
+ * a 3D parallax illusion. Includes a subtle floating animation on the lake layer.
+ *
+ * Layers (back to front):
+ * - folliage7 — furthest background, minimal movement
+ * - fog6       — mid-background fog, slow drift
+ * - lake5      — mid layer with looping vertical float animation
+ * - folliage3  — mid-foreground with embedded doe figure
+ * - folliage2  — nearest foreground, strongest parallax movement
+ *
+ * Mouse tracking is normalised to [-0.5, 0.5] relative to the container,
+ * with spring smoothing applied before being mapped to pixel offsets per layer.
+ *
+ * @example
+ * <MirandaWebHero />
+ */
 
 interface Props {}
 
@@ -33,14 +54,18 @@ const MirandaWebHero: FC<Props> = ({}) => {
 
   return (
     <div className={styles.wrapper}>
-      <section className={styles.heroContainer} onMouseMove={handleMouseMove}>
+      <div
+        className={styles.heroContainer}
+        onMouseMove={handleMouseMove}
+        aria-hidden="true"
+      >
         <motion.div
           className={`${styles.bgElementWrapper} ${styles.folliage7}`}
           style={{ x: layerFurtherestX, y: layerFurtherestY }}
         >
           <Image
             src="/hero/folliage7.svg"
-            alt="fog"
+            alt=""
             fill
             className={styles.bgElementImg}
           />
@@ -51,7 +76,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
         >
           <Image
             src="/hero/fog6.svg"
-            alt="fog"
+            alt=""
             fill
             className={styles.bgElementImg}
           />
@@ -63,7 +88,7 @@ const MirandaWebHero: FC<Props> = ({}) => {
         >
           <Image
             src="/hero/lake5.svg"
-            alt="folliage"
+            alt=""
             fill
             className={styles.bgElementImg}
           />
@@ -74,13 +99,13 @@ const MirandaWebHero: FC<Props> = ({}) => {
         >
           <Image
             src="/hero/folliage3.svg"
-            alt="folliage"
+            alt=""
             fill
             className={styles.bgElementImg}
           />
           <Image
             src="/hero/doe4.svg"
-            alt="doe"
+            alt=""
             height={200}
             width={200}
             className={styles.doeImg}
@@ -92,12 +117,12 @@ const MirandaWebHero: FC<Props> = ({}) => {
         >
           <Image
             src="/hero/folliage2.svg"
-            alt="folliage"
+            alt=""
             fill
             className={styles.bgElementImg}
           />
         </motion.div>
-      </section>
+      </div>
     </div>
   );
 };

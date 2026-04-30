@@ -13,6 +13,7 @@ Built with **Next.js**, **TypeScript**, and **Sass**.
 - [ProfileCard](#profilecard)
 - [Avatar](#avatar)
 - [ParallaxSections](#parallaxsections)
+- [MirandaWebHero](#mirandawebhero)
 
 ## Components
 
@@ -59,6 +60,24 @@ Built with **Framer Motion**. Based on a [tutorial by Olivier Larose](https://ww
 | -------- | ------------------------------------ |
 | Section1 | Scale 1 → 0.8, Rotation 0deg → -5deg |
 | Section2 | Scale 0.8 → 1, Rotation -5deg → 0deg |
+
+---
+
+### MirandaWebHero
+
+![MirandaWebHero Component](public/screenshots/miranda-web-hero.png)
+
+A full-screen parallax hero section with layered SVG elements that respond to mouse movement. Each layer moves at a different depth and speed to create a 3D parallax illusion, with spring smoothing applied for a natural, fluid feel.
+
+Built with **Framer Motion** (`useMotionValue`, `useSpring`, `useTransform`).
+
+| Layer     | Depth    | Behaviour                              |
+| --------- | -------- | -------------------------------------- |
+| folliage7 | Furthest | Minimal movement, subtle parallax      |
+| fog6      | Far      | Slow drift with mouse                  |
+| lake5     | Mid      | Looping vertical float, no mouse track |
+| folliage3 | Mid-near | Mouse parallax + embedded doe figure   |
+| folliage2 | Nearest  | Strongest parallax movement            |
 
 ## Tech Stack
 
