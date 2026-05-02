@@ -1,0 +1,7 @@
+@use "../../styles/variables" as *;
+
+.plantCard {
+  padding: 2rem;
+  background-color: $color-300;
+  display: flex;
+}
