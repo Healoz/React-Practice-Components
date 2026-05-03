@@ -1,8 +1,8 @@
 import React from "react";
-import PlantCard from "../components/PlantCard";
+import PlantWateringTracker from "../components/PlantWateringTracker";
 
 const page = () => {
-  return <PlantCard />;
+  return <PlantWateringTracker />;
 };
 
 export default page;

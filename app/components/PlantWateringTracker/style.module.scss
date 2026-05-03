@@ -1,0 +1,8 @@
+@use "../../styles/variables" as *;
+
+.plantCardGrid {
+  padding: 30px;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+}

@@ -4,4 +4,10 @@
   padding: 2rem;
   background-color: $color-300;
   display: flex;
+
+  .plantInfo {
+    .plantImgContainer {
+      display: flex;
+    }
+  }
 }
