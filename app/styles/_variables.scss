@@ -20,6 +20,65 @@ $spacing-lg: 32px;
 $spacing-xl: 64px;
 $spacing-2xl: 128px;
 
+// ==== FONT-SIZE ====
+$font-xxs: 12px;
+$font-xs: 14px;
+$font-base: 16px;
+$font-sm: 20px;
+$font-md: 24px;
+$font-lg: 32px;
+$font-xl: 48px;
+$font-2xl: 72px;
+$font-3xl: 96px;
+
 // ==== BORDER-RADIUS ====
 $radius: 20px;
 $shadow: 0 6px 6px rgba(0, 0, 0, 0.01);
+
+// ==== BREAKPOINTS ====
+$bp-xs: 480px; // Mobile small
+$bp-sm: 640px; // Mobile large
+$bp-md: 768px; // Tablet
+$bp-lg: 1024px; // Desktop small
+$bp-xl: 1280px; // Desktop
+$bp-xxl: 1536px; // Desktop large
+
+// ==== MEDIA QUERY MIXINS ====
+// Mobile first — styles apply at breakpoint and UP
+@mixin xs {
+  @media (min-width: $bp-xs) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: $bp-sm) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+@mixin xl {
+  @media (min-width: $bp-xl) {
+    @content;
+  }
+}
+@mixin xxl {
+  @media (min-width: $bp-xxl) {
+    @content;
+  }
+}
+
+// ==== LAYOUT MIXINS ====
+@mixin col($gap: $spacing-md) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}

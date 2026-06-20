@@ -1,0 +1,42 @@
+@use "../../styles/variables" as *;
+
+.scrollArea {
+  height: 600vh;
+  background-color: red;
+  position: relative;
+  .section {
+    height: 100vh;
+    width: 100%;
+    background-color: $color-accent;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+
+    @include md {
+      justify-content: flex-end;
+    }
+
+    .imgsContainer {
+      width: 85%;
+      max-width: 650px;
+      height: 120%;
+
+      transform: rotate(6deg) translateY(-30);
+
+      @include md {
+        margin-right: 10vw;
+      }
+
+      .scrollingImgsWrapper {
+        .img {
+          background-color: $color-secondary;
+          width: 100%;
+          height: 600px;
+          margin-bottom: $spacing-md;
+        }
+      }
+    }
+  }
+}
