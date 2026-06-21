@@ -15,7 +15,8 @@ const Nav = () => {
     { name: "Miranda Web Hero", url: "/miranda-web-hero" },
     { name: "Plant Card", url: "/plant-waterer" },
     { name: "Scroll Image", url: "/scroll-image" },
-    { name: "ExpandingSection", url: "/expanding-section" },
+    { name: "Expanding Section", url: "/expanding-section" },
+    { name: "Bento Layout", url: "/bento-layout" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
