@@ -1,13 +1,43 @@
 @use "../../styles/variables" as *;
 
 .plantCard {
-  padding: 2rem;
+  padding: $spacing-lg;
   background-color: $color-300;
   display: flex;
 
   .plantInfo {
+    display: flex;
+    gap: $spacing-lg;
+
+    .info {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      gap: $spacing-sm;
+      h3 {
+        font-size: $font-lg;
+      }
+
+      .waterTiming {
+        background-color: $color-green;
+        color: $color-white;
+        padding: $spacing-sm;
+        padding-bottom: $spacing-xs;
+        line-height: $font-xxs;
+        font-size: $font-xs;
+        display: flex;
+      }
+    }
+
     .plantImgContainer {
       display: flex;
+      border-radius: $radius;
+      box-shadow: -2px 2px 0 $color-primary;
+
+      img {
+        object-fit: cover;
+        border-radius: $radius;
+      }
     }
   }
 }

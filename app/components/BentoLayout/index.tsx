@@ -27,7 +27,13 @@ const BentoLayout = () => {
     <section>
       <div className={styles.bentoLayoutScroll} ref={scrollContainer}>
         <div className={styles.bentoGridWrapper}>
-          <motion.div className={styles.bentoGrid} style={{ x }}></motion.div>
+          <motion.div className={styles.bentoGrid} style={{ x }}>
+            <div className={styles.gridCell}></div>
+            <div className={styles.gridCell}></div>
+            <div className={styles.gridCell}></div>
+            <div className={styles.gridCell}></div>
+            <div className={styles.gridCell}></div>
+          </motion.div>
         </div>
       </div>
       <div className={styles.section2}></div>

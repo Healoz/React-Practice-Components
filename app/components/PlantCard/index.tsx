@@ -13,13 +13,13 @@ const PlantCard: FC<Props> = ({}) => {
           <Image
             src="https://images.unsplash.com/photo-1519336056116-bc0f1771dec8?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             height={300}
-            width={100}
+            width={150}
             alt="Image of plant"
           />
         </div>
-        <div>
+        <div className={styles.info}>
           <h3>Monstera</h3>
-          <p>Every 7 days</p>
+          <p className={styles.waterTiming}>Every 7 days</p>
         </div>
       </div>
     </article>
