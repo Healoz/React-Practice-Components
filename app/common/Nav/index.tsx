@@ -17,6 +17,7 @@ const Nav = () => {
     { name: "Scroll Image", url: "/scroll-image" },
     { name: "Expanding Section", url: "/expanding-section" },
     { name: "Bento Layout", url: "/bento-layout" },
+    { name: "Text Reveal", url: "/text-reveal" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

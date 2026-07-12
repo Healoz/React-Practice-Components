@@ -1,0 +1,24 @@
+@use "../../styles/variables" as *;
+
+.textReveal {
+  background-color: $color-300;
+  min-height: 80vh;
+  padding: $spacing-xl;
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 30rem;
+  position: relative;
+
+  .wrapper {
+    // background-color: blue;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    p {
+      font-size: $font-lg;
+      line-height: $font-xl;
+      font-weight: 500;
+    }
+  }
+}

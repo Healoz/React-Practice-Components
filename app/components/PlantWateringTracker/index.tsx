@@ -8,6 +8,10 @@ const PlantWateringTracker: FC<Props> = ({}) => {
   return (
     <section className={styles.plantCardGrid}>
       <PlantCard />
+      <PlantCard />
+      <PlantCard />
+      <PlantCard />
+      <PlantCard />
     </section>
   );
 };
