@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef } from "react";
 import styles from "./style.module.scss";
 import {
   motion,
@@ -13,49 +13,62 @@ import {
 
 // Design plan:
 
-interface SplitTextProps {
-  text: string;
+interface LetterProps {
+  letter: string;
   index: number;
+  total: number;
+  scrollProgress: MotionValue<number>;
 }
 
-const SplitText: FC<SplitTextProps> = ({ text, index }) => {
-  const letters = text.split("");
-  const letterCount = text.length;
-  const scrollContainer = useRef(null);
+interface SplitTextProps {
+  text: string;
+  scrollProgress: MotionValue<number>;
+}
 
-  const { scrollYProgress } = useScroll({
-    target: scrollContainer,
-    offset: ["start end", "end start"],
-  });
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(index, ": ", latest);
-  });
+const Letter: FC<LetterProps> = ({ letter, index, total, scrollProgress }) => {
+  const start = index / total;
+  const end = start + 1 / total;
 
-  const highlightedCount = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, letterCount],
-  );
+  const opacity = useTransform(scrollProgress, [start, end], [0.15, 1]);
 
   return (
-    <p ref={scrollContainer}>
-      {letters.map((letter, i) => {
-        const backgroundColor = useTransform(highlightedCount, (latest) =>
-          i <= latest ? "blue" : "transparent",
-        );
-        return (
-          <motion.span key={i} style={{ backgroundColor }}>
-            {letter}
-          </motion.span>
-        );
-      })}
+    <motion.span style={{ opacity }}>
+      {letter === " " ? "\u00A0" : letter}
+    </motion.span>
+  );
+};
+
+const SplitText: FC<SplitTextProps> = ({ text, scrollProgress }) => {
+  const letters = text.split("");
+
+  return (
+    <p>
+      {letters.map((letter, index) => (
+        <Letter
+          key={index}
+          letter={letter}
+          index={index}
+          total={letters.length}
+          scrollProgress={scrollProgress}
+        />
+      ))}
     </p>
   );
 };
 
 const TextReveal = () => {
+  const scrollContainer = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollContainer,
+    offset: ["start start", "end end"],
+  });
+
+  useMotionValueEvent(scrollYProgress, "change", (scrollYProgress) => {
+    console.log(scrollYProgress);
+  });
+
   return (
-    <section className={styles.textReveal}>
+    <section className={styles.textReveal} ref={scrollContainer}>
       <div className={styles.wrapper}>
         <SplitText
           text="Do you need top-tier creative talent without the headaches? Design is
@@ -64,10 +77,10 @@ const TextReveal = () => {
           solution can be challenging. Full-time designers are costly,
           freelancers unreliable, and typical agencies might not match your pace
           or pricing needs."
-          index={1}
+          scrollProgress={scrollYProgress}
         />
 
-        <SplitText text="There’s a better way." index={2} />
+        {/* <SplitText text="There’s a better way." index={2} />
         <SplitText
           text="PX PUSH is the creative backbone for startups and established
           companies. Our team of seasoned designers, strategists, and writers
@@ -90,7 +103,7 @@ const TextReveal = () => {
           text="It’s like having a world-class design crew on demand, starting at
           $4,000/mo."
           index={5}
-        />
+        /> */}
       </div>
     </section>
   );
