@@ -26,32 +26,33 @@ interface SplitTextProps {
 }
 
 const Letter: FC<LetterProps> = ({ letter, index, total, scrollProgress }) => {
-  const start = index / total;
-  const end = start + 1 / total;
-
-  const opacity = useTransform(scrollProgress, [start, end], [0.15, 1]);
-
-  return (
-    <motion.span style={{ opacity }}>
-      {letter === " " ? "\u00A0" : letter}
-    </motion.span>
-  );
+  return <motion.span>{letter === " " ? "\u00A0" : letter}</motion.span>;
 };
 
 const SplitText: FC<SplitTextProps> = ({ text, scrollProgress }) => {
-  const letters = text.split("");
+  const words = text.split(" ");
 
   return (
     <p>
-      {letters.map((letter, index) => (
-        <Letter
-          key={index}
-          letter={letter}
-          index={index}
-          total={letters.length}
-          scrollProgress={scrollProgress}
-        />
-      ))}
+      {words.map((word, wordIndex) => {
+        const letters = word.split("");
+        return (
+          <React.Fragment key={wordIndex}>
+            <span className={styles.word}>
+              {letters.map((letter, letterIndex) => (
+                <Letter
+                  key={letterIndex}
+                  letter={letter}
+                  index={letterIndex}
+                  total={letters.length}
+                  scrollProgress={scrollProgress}
+                />
+              ))}
+            </span>
+            {wordIndex < words.length - 1 && " "}
+          </React.Fragment>
+        );
+      })}
     </p>
   );
 };
@@ -64,11 +65,12 @@ const TextReveal = () => {
   });
 
   useMotionValueEvent(scrollYProgress, "change", (scrollYProgress) => {
-    console.log(scrollYProgress);
+    console.log("scrolled: ", scrollYProgress);
   });
 
   return (
     <section className={styles.textReveal} ref={scrollContainer}>
+      <div className={`${styles.gradientOverlay}`}></div>
       <div className={styles.wrapper}>
         <SplitText
           text="Do you need top-tier creative talent without the headaches? Design is
@@ -80,14 +82,17 @@ const TextReveal = () => {
           scrollProgress={scrollYProgress}
         />
 
-        {/* <SplitText text="There’s a better way." index={2} />
+        {/* <SplitText
+          text="There’s a better way."
+          scrollProgress={scrollYProgress}
+        />
         <SplitText
           text="PX PUSH is the creative backbone for startups and established
           companies. Our team of seasoned designers, strategists, and writers
           integrates with yours, offering unlimited design at predictable costs.
           Our model is simple and flexible; request design, set priorities, we
           execute."
-          index={3}
+          scrollProgress={scrollYProgress}
         />
 
         <SplitText
@@ -96,13 +101,13 @@ const TextReveal = () => {
           bloated costs and unpredictability. We’re flexible, reliable, and
           fully integrated with your team, delivering high-quality design at a
           fraction of the price."
-          index={4}
+          scrollProgress={scrollYProgress}
         />
 
         <SplitText
           text="It’s like having a world-class design crew on demand, starting at
           $4,000/mo."
-          index={5}
+          scrollProgress={scrollYProgress}
         /> */}
       </div>
     </section>

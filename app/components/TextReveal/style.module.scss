@@ -3,22 +3,36 @@
 .textReveal {
   background-color: $color-300;
   min-height: 100vh;
-  padding: $spacing-xl;
-  display: flex;
-  justify-content: flex-end;
-  padding-block: 30rem;
+  background-color: $color-500;
   position: relative;
 
+  .gradientOverlay {
+    background-color: rgba(0, 0, 255, 0.454);
+    height: 20rem;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+
   .wrapper {
-    // background-color: blue;
     width: 70%;
+    padding: $spacing-xl;
+    padding-block: 30rem;
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
+    position: relative;
     p {
       font-size: $font-lg;
       line-height: $font-xl;
       font-weight: 500;
+
+      .word {
+        display: inline-block;
+        white-space: nowrap;
+      }
     }
   }
 }
