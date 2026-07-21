@@ -18,6 +18,7 @@ const Nav = () => {
     { name: "Expanding Section", url: "/expanding-section" },
     { name: "Bento Layout", url: "/bento-layout" },
     { name: "Text Reveal", url: "/text-reveal" },
+    { name: "Mouse Overlay", url: "/mouse-overlay" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
