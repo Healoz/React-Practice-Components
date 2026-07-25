@@ -1,38 +1,12 @@
 @use "../../styles/variables" as *;
 
-.bentoLayoutScroll {
-  width: 100%;
-  height: 300vh;
+.wrapper {
   background-color: blue;
   position: relative;
-
-  .bentoGridWrapper {
-    position: sticky;
-    height: 100vh;
-    top: 0;
-    overflow: hidden;
-    .bentoGrid {
-      background-color: pink;
-
-      display: flex;
-      gap: $spacing-sm;
-
-      height: 100%;
-      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxVv5885YT2OB5EG4_62DVc-c3QuZB5V3acA&s);
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      .gridCell {
-        background-color: pink;
-        width: 30vw;
-        flex-shrink: 0;
-      }
-    }
+  .overlay {
+    width: $spacing-xl;
+    height: $spacing-xl;
+    background-color: $color-black;
+    position: fixed;
   }
-}
-
-.section2 {
-  background-color: green;
-  width: 100%;
-  height: 70vh;
 }
