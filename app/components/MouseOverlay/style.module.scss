@@ -1,12 +1,21 @@
 @use "../../styles/variables" as *;
 
 .wrapper {
-  background-color: blue;
+  // background-color: blue;
   position: relative;
+  padding: $spacing-xl;
+  gap: $spacing-md;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
   .overlay {
-    width: $spacing-xl;
-    height: $spacing-xl;
-    background-color: $color-black;
+    width: $spacing-2xl;
+    height: $spacing-2xl;
+    background-color: white;
+    mix-blend-mode: difference;
     position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
   }
 }
