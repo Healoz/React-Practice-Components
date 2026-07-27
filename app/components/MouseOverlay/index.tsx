@@ -16,10 +16,12 @@ const MouseOverlay = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const [hovered, setHovered] = useState(false);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX - 64);
-      mouseY.set(e.clientY - 64);
+      mouseX.set(e.clientX - 8);
+      mouseY.set(e.clientY - 8);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -33,9 +35,13 @@ const MouseOverlay = () => {
       <motion.div
         className={styles.overlay}
         style={{ x: mouseX, y: mouseY }}
+        animate={{ scale: hovered ? 8 : 1 }}
       ></motion.div>
       <h2>This is a heading</h2>
-      <p>
+      <p
+        onMouseOver={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero labore
         molestiae, qui alias voluptatum explicabo unde quod iure maiores ab.
         Nihil, dolore impedit. Laborum maxime, ut impedit error asperiores omnis

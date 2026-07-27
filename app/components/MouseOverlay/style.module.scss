@@ -9,8 +9,8 @@
   flex-direction: column;
   background-color: white;
   .overlay {
-    width: $spacing-2xl;
-    height: $spacing-2xl;
+    width: $spacing-md;
+    height: $spacing-md;
     background-color: white;
     mix-blend-mode: difference;
     position: fixed;
